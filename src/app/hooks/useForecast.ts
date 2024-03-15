@@ -11,11 +11,10 @@ const useForecast = () => {
   
   //const test = `http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${process.env.NEXT_PUBLIC_REACT_APP_API_KEY}`
     const getSearchOptions = (value: string) => {
-      fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${process.env.NEXT_PUBLIC_REACT_APP_API_KEY}`)
+      fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${process.env.NEXT_PUBLIC_REACT_APP_API_KEY}`, {method: "GET", referrer: "origin"})
       .then((res) => res.json())
       .then((data) => setOptions(data))
       .catch((e) => console.log({e}))
-  
     }
     
     //http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
