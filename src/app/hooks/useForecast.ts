@@ -11,7 +11,7 @@ const useForecast = () => {
   
   //const test = `http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${process.env.NEXT_PUBLIC_REACT_APP_API_KEY}`
     const getSearchOptions = (value: string) => {
-      fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${process.env.NEXT_PUBLIC_REACT_APP_API_KEY}`)
+      fetch(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${process.env.NEXT_PUBLIC_REACT_APP_API_KEY}`)
       .then((res) => res.json())
       .then((data) => setOptions(data))
       .catch((e) => console.log({e}))
@@ -26,7 +26,7 @@ const useForecast = () => {
       }
 
   const getForecast = (city: optionType) => {
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&units=metric&appid=${process.env.NEXT_PUBLIC_REACT_APP_API_KEY}`)
+    fetch(`https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&units=metric&appid=${process.env.NEXT_PUBLIC_REACT_APP_API_KEY}`)
     .then((res) => res.json())
     .then((data) => {
         const forecastData = {
